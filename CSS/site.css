@@ -1,0 +1,91 @@
+:root {
+    --primary-color: rgb(30, 81, 156);
+    --secondary-color: rgb(118, 19, 230);
+    --dark-color: rgb(36, 36, 36);
+    --white-color: rgb(255, 255, 255);
+}
+
+footer {
+    padding-right: 1rem;
+}
+
+footer .social>a {
+    color: var(--white-color);
+    opacity: 0.75;
+}
+
+footer .social>a:hover {
+    opacity: 0.9;
+    color: var(--primary-color);
+}
+
+
+body {
+    color: var(--dark-color);
+}
+
+nav {
+    background-color: var(--dark-color);
+}
+
+footer {
+    background-color: var(--dark-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--primary-color);
+}
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+white-space: pre-wrap;
+word-break: break-all;
+word-wrap: break-word;
+}
+
+
+main>.container {
+    padding: 60px 15px 0;
+    margin-bottom: 5rem;
+}
+
+.sticky-footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.bsicon {
+
+    color: #8312FA;
+}
+
+.jsicon {
+    color: #F0DB4F;
+}
+
+.html5icon {
+    color: #E44D26;
+}
+
+.cssicon {
+    color: #0A71B8;
+}
+
+.checklist>li i {
+    color: var(--secondary-color)
+}
+
+@media screen and (max-width: 400px) {
+    .responsiveicon {
+        font-size: 18vw;
+    }
+}
+
