@@ -33,9 +33,18 @@ At end each month, Remaining Balance = Previous Remaining Balance - principal pa
 
 // a function is needed to take the outputs of loanAmount amountOfMonths interestRate
 function getValues() {
-    document.getElementById('loanAmount');
-    document.getElementById('amountOfMonths');
-    document.getElementById('interestRate');
+    let loanAmt = document.getElementById('loanAmount');
+    let amt_payments = document.getElementById('amountOfMonths');
+    let intRate = document.getElementById('interestRate');
+
+    // if (Document.parse(loanAmt) || Document.parse(amt_payments) || Document.parse(intRate)) {
+    //     calculate = calculateNumbers(calculate);
+    // } else {
+    //     alert('Numbers Are Needed')
+    // }
+
+    
+
 }
 
 // a function is needed 

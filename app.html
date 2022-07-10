@@ -52,37 +52,22 @@
     <!-- ----Main Sectoion----  -->
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <div class="row row-cols-1 row-cols-lg-2">
-                <div class="col">
-                    <h2 class="display-5 fw-bold lh-1 mb-4">Taco Cat: A Coding Project</h2>
-                    <h4 class="lead fw-normal mb-3">A JavaScript Coding Exercise Using Arrays. Write A String In The
-                        Input
-                        Box</h4>
+            <div class="col-6 border p-3 bg-light">
+                <span>
+                    Loan Amount <input type="number" class="form-control" aria-label="" id="loanAmount">
+                </span>
+                <span>
+                    Payments <input type="number" class="form-control" aria-label="" id="amountOfMonths">
+                </span>
+                <span>
+                    Rate <input type="number" class="form-control" aria-label="" id="interestRate">
+                </span>
+                <div class="col-6 p-4 bg-light ">
+                    <button type="button" class="btn btn-success position-absolute end-50" id="btnSubmit">Calculate</button>
                 </div>
-                <div class="col">
-                    <h5 class="fw-normal border-1 border-bottom border-3">Enter A Word Sentace, Or Phrase</h4>
-                        <form class="row gx-3 gy-2">
-                            <div class="col">
-                                <input class="form-control" type="text" placeholder="Enter A String" id="stringInput"
-                                    aria-label="Enter A String"></input>
-                            </div>
-                            <div class="col-12">
-                                <button type="button" class="btn btn-danger" id="btnSubmit">Reverse The
-                                    String</button>
-                            </div>
-                            <div id="alert" role="start" class="alert alert-danger mt-5 invisible fade show">
-                                <h4 id="alert-header" class="alert-heading">String Successfully Reversed!</h4>
-                                <hr>
-                                <p id="message" class="mb-0">
-                                    <!--Insert A Message Here-->
-                                </p>
-                            </div>
-
-                        </form>
-                </div>
-
             </div>
-
+        </div>
+        
         </div>
     </main>
 
@@ -98,7 +83,7 @@
 
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-center">
-                    <img src="IMG/benjaminbakermain.svg" alt="Baker Logo Footer" height="35">
+                    <img src="IMG/" alt="Baker Logo Footer" height="35">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
@@ -126,7 +111,7 @@
     </script>
     <script src="/JS/site.js"></script>
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", getValue)
+        document.getElementById("btnSubmit").addEventListener("click", getValues)
     </script>
 </body>
 
