@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>#AppName#: A Coding Project By Benjamin Baker</title>
+    <title>Taco Cat: A Coding Project By Benjamin Baker</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,46 +11,79 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-   <!-- Convert this to an external style sheet -->
+    <!-- Convert this to an external style sheet -->
     <link href="/CSS/site.css" rel="stylesheet">
-    <link href="IMG/favicon-32x32.png" rel="icon" type="image/png">
+    <link href="IMG/favicon.ico" rel="icon" type="image/ico">
 </head>
 
 <body class="d-flex flex-column h-100">
-<!-- ----Nav Sectoion----  -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="IMG/hundoLogo.svg" class="d-inline-block align-text-top" width="30" height="24" alt="Baker Logo">  APPLICATION NAME</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="code.html">The Code</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="app.html">The App</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Git Repo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">About</a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-</nav>
+    <!-- ----Nav Sectoion----  -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="IMG/favicon-32x32.png" class="d-inline-block align-text-top"
+                    width="32" height="32" alt="Baker Logo"> Taco Cat</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="code.html">The Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="app.html">The App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Benjamin-Baker101/ReverseString">Git Repo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://bakerportfolio.netlify.app/">About</a>
+                    </li>
 
-<!-- ----Main Sectoion----  -->
-<main class="flex-shrink-0">
-    <div class="container"></div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ----Main Sectoion----  -->
+    <main class="flex-shrink-0">
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col">
+                    <h2 class="display-5 fw-bold lh-1 mb-4">Taco Cat: A Coding Project</h2>
+                    <h4 class="lead fw-normal mb-3">A JavaScript Coding Exercise Using Arrays. Write A String In The
+                        Input
+                        Box</h4>
+                </div>
+                <div class="col">
+                    <h5 class="fw-normal border-1 border-bottom border-3">Enter A Word Sentace, Or Phrase</h4>
+                        <form class="row gx-3 gy-2">
+                            <div class="col">
+                                <input class="form-control" type="text" placeholder="Enter A String" id="stringInput"
+                                    aria-label="Enter A String"></input>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-danger" id="btnSubmit">Reverse The
+                                    String</button>
+                            </div>
+                            <div id="alert" role="start" class="alert alert-danger mt-5 invisible fade show">
+                                <h4 id="alert-header" class="alert-heading">String Successfully Reversed!</h4>
+                                <hr>
+                                <p id="message" class="mb-0">
+                                    <!--Insert A Message Here-->
+                                </p>
+                            </div>
+
+                        </form>
+                </div>
+
+            </div>
+
+        </div>
     </main>
 
     <!-- ----Footer Sectoion----  -->
@@ -62,21 +95,23 @@
                         <span class="text-muted">&copy;2022</span>
                         Benjamin Baker | benjamin@bakermedical.net
                     </div>
-                
+
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-center">
-                    <img src="IMG/hundoLogo.svg" alt="Baker Logo" height="24">
+                    <img src="IMG/benjaminbakermain.svg" alt="Baker Logo Footer" height="35">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
-                   <div class="row">
+                    <div class="row">
                         <div class="col social">
-                            <a  target="_blank" href="https://www.linkedin.com/in/benjamin-baker-7426a11ab/"><i class="fab fa-linkedin fa-2x"></i></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/benjamin-baker-7426a11ab/"><i
+                                    class="fab fa-linkedin fa-2x"></i></a>
                         </div>
                         <div class="col social">
-                            <a target="_blank" href="https://github.com/Benjamin-Baker101"><i class="fab fa-github fa-2x"></i></a>
+                            <a target="_blank" href="https://github.com/Benjamin-Baker101"><i
+                                    class="fab fa-github fa-2x"></i></a>
                         </div>
-                        
-                   </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,6 +125,9 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous">
     </script>
     <script src="/JS/site.js"></script>
-
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click", getValue)
+    </script>
 </body>
+
 </html>

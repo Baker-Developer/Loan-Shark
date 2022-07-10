@@ -27,18 +27,15 @@ At end each month, Remaining Balance = Previous Remaining Balance - principal pa
  */
 
 
-function amountOfMoney() {
+// write var  called amountOfMoney for the amount loaned in dollars (balance on input)
+// write var  called timeOfLoan for the loan will be repaid (months on input)
+// write var  called interestRate that will accure on the loan (intertest rate on input)
 
-
-
+// a function is needed to take the outputs of loanAmount amountOfMonths interestRate
+function getValues() {
+    document.getElementById('loanAmount');
+    document.getElementById('amountOfMonths');
+    document.getElementById('interestRate');
 }
 
-
-function timeOfLoan() {
-
-}
-
-
-function percentageRate() {
-
-}
+// a function is needed 
