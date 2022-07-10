@@ -52,22 +52,47 @@
     <!-- ----Main Sectoion----  -->
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <div class="col-6 border p-3 bg-light">
-                <span>
-                    Loan Amount <input type="number" class="form-control" aria-label="" id="loanAmount">
-                </span>
-                <span>
-                    Payments <input type="number" class="form-control" aria-label="" id="amountOfMonths">
-                </span>
-                <span>
-                    Rate <input type="number" class="form-control" aria-label="" id="interestRate">
-                </span>
-                <div class="col-6 p-4 bg-light ">
-                    <button type="button" class="btn btn-success position-absolute end-50" id="btnSubmit">Calculate</button>
+            <div class="row">
+                <div class="col-6 border p-3 bg-light">
+                    <div class="row">
+                        <span>
+                            Loan Amount <input type="number" class="form-control" aria-label="" id="loanAmount">
+                        </span>
+                    </div>
+                    <div class="row">
+                        <span>
+                            Payments <input type="number" class="form-control" aria-label="" id="amountOfMonths">
+                        </span>
+                    </div>
+                    <div class="row">
+                        <span>
+                            Rate <input type="number" class="form-control" aria-label="" id="interestRate">
+                        </span>
+                    </div>
+                    <div class="row position-absolute end-50 p-4">
+                        <button type="button" class="btn btn-success" id="btnSubmit">Calculate</button>
+                    </div>
+
                 </div>
+                <div class="col-6 border p-3 bg-light">
+                    <div class="row">
+                        <h4 class="text-center text-dark">Your Monthly Payments</h4>
+                    </div>
+                    <div class="row">
+                        <span class="">Total Principal:</span>
+                    </div>
+                    <div class="row">
+                        <span class="">Total Interest:</span>
+                    </div>
+                    <div class="row">
+                        <span class="">Total Cost:</span>
+                    </div>
+                </div>
+
             </div>
+
         </div>
-        
+
         </div>
     </main>
 
@@ -83,7 +108,7 @@
 
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-center">
-                    <img src="IMG/" alt="Baker Logo Footer" height="35">
+                    <img src="IMG/Loan Shark.svg" alt="Baker Logo Footer" height="35">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
