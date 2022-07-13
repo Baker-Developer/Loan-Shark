@@ -56,27 +56,27 @@
                 <div class="col-6 border p-3 bg-light">
                     <div class="row">
                         <span>
-                            Loan Amount <input type="number" class="form-control" aria-label="" id="loanAmount">
+                            Loan Amount <input type="number" class="form-control" aria-label="" id="principal">
                         </span>
                     </div>
                     <div class="row">
                         <span>
-                            Payments <input type="number" class="form-control" aria-label="" id="amountOfPayments">
+                            Payments <input type="number" class="form-control" aria-label="" id="term">
                         </span>
                     </div>
                     <div class="row">
                         <span>
-                            Rate <input type="number" class="form-control" aria-label="" id="interestRate">
+                            Rate <input type="number" class="form-control" aria-label="" id="rate">
                         </span>
                     </div>
-                    <div class="row p-4 position-fixed end-50">
+                    <div class="row p-4">
                         <button type="button" class="btn btn-success" id="btnSubmit">Calculate</button>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="row">
                         <h4 class="text-center text-dark">Your Monthly Payments</h4>
-                        <span class="text-lg-center p-5 monthlyPayments">$100.00</span>
+                        <span class="text-lg-center p-5 monthlyPayments">###</span>
                     </div>
                     <div class="row">
                         <span class="totalPrincipal">Total Principal:</span>
@@ -167,7 +167,7 @@
     </script>
     <script src="/JS/site.js"></script>
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", displayValues)
+        document.getElementById("btnSubmit").addEventListener("click", getInput)
     </script>
 </body>
 
