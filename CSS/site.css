@@ -42,11 +42,13 @@ h6 {
 }
 
 
+
+
 code[class*="language-"],
 pre[class*="language-"] {
-white-space: pre-wrap;
-word-break: break-all;
-word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 
@@ -83,9 +85,20 @@ main>.container {
     color: var(--secondary-color)
 }
 
+
+.monthlyPayments {
+    font-size: 50px;
+    color: var(--primary-color)
+}
+
+.tableBackground {
+    background-color:  var(--primary-color);
+    color: var(--white-color);
+}
+
+
 @media screen and (max-width: 400px) {
     .responsiveicon {
         font-size: 18vw;
     }
 }
-

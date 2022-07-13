@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="IMG/favicon-32x32.png" class="d-inline-block align-text-top"
-                    width="32" height="32" alt="Baker Logo"> Taco Cat</a>
+                    width="32" height="32" alt="Baker Logo"> Loan Shark</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
                         <a class="nav-link active" aria-current="page" href="app.html">The App</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/Benjamin-Baker101/ReverseString">Git Repo</a>
+                        <a class="nav-link" href="https://github.com/Benjamin-Baker101/Loan-Shark">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://bakerportfolio.netlify.app/">About</a>
@@ -51,7 +51,7 @@
 
     <!-- ----Main Sectoion----  -->
     <main class="flex-shrink-0">
-        <div class="container mt-5">
+        <div class="container table-responsive mt-5">
             <div class="row">
                 <div class="col-6 border p-3 bg-light">
                     <div class="row">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="row">
                         <span>
-                            Payments <input type="number" class="form-control" aria-label="" id="amountOfMonths">
+                            Payments <input type="number" class="form-control" aria-label="" id="amountOfPayments">
                         </span>
                     </div>
                     <div class="row">
@@ -69,33 +69,66 @@
                             Rate <input type="number" class="form-control" aria-label="" id="interestRate">
                         </span>
                     </div>
-                    <div class="row position-absolute end-50 p-4">
+                    <div class="row p-4 position-fixed end-50">
                         <button type="button" class="btn btn-success" id="btnSubmit">Calculate</button>
                     </div>
-
                 </div>
                 <div class="col-6">
                     <div class="row">
                         <h4 class="text-center text-dark">Your Monthly Payments</h4>
+                        <span class="text-lg-center p-5 monthlyPayments">$100.00</span>
                     </div>
                     <div class="row">
-                        <span class="">Total Principal:</span>
+                        <span class="totalPrincipal">Total Principal:</span>
                     </div>
                     <div class="row">
-                        <span class="">Total Interest:</span>
+                        <span class="totalInterest">Total Interest:</span>
                     </div>
                     <div class="row">
-                        <span class="">Total Cost:</span>
+                        <span class="totalCost" id="theTotalCost">Total Cost:</span>
                     </div>
                 </div>
-                
+
+                <div class="row">
+                    <div class="col-12 py-3 gy-5"></div>
+                    <table class="table table-striped">
+                        <thead class="tableBackground">
+                            <tr>
+                                <th scope="col">Month</th>
+                                <th scope="col">Payment</th>
+                                <th scope="col">Principal</th>
+                                <th scope="col">Interest</th>
+                                <th scope="col">Total Interest</th>
+                                <th scope="col">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr id="message">
+                                <!--    A Output Is Needed Here   -->
+
+                                <!-- <th scope="row">#</th>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td> -->
+
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
         </div>
         </div>
     </main>
 
     <!-- ----Footer Sectoion----  -->
-    <footer class="footer mt-auto py-3 sticky-footer">
+    <footer class="footer mt-auto py-3">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col order-last order-lg-first text-light">
@@ -106,7 +139,7 @@
 
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-center">
-                    <img src="IMG/Loan Shark.svg" alt="Baker Logo Footer" height="35">
+                    <img src="IMG/benjaminbakermain.svg" alt="Baker Logo Footer" height="35">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
@@ -134,7 +167,7 @@
     </script>
     <script src="/JS/site.js"></script>
     <script>
-        document.getElementById("btnSubmit").addEventListener("click", getValues)
+        document.getElementById("btnSubmit").addEventListener("click", displayValues)
     </script>
 </body>
 

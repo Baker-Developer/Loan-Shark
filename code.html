@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>Taco Cat: A Coding Project By Benjamin Baker</title>
+    <title>Loan Shark: A Coding Project By Benjamin Baker</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="IMG/favicon-32x32.png" class="d-inline-block align-text-top"
-                    width="32" height="32" alt="Baker Logo"> Taco Cat</a>
+                    width="32" height="32" alt="Baker Logo"> Loan Shark</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,10 +39,10 @@
                         <a class="nav-link" href="app.html" target="_self">The App</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Git Repo</a>
+                        <a class="nav-link" href="https://github.com/Benjamin-Baker101/Loan-Shark">Git Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">About</a>
+                        <a class="nav-link" target="_blank" href="https://bakerportfolio.netlify.app/">About</a>
                     </li>
 
                 </ul>
@@ -52,65 +52,18 @@
     <!-- ----Main Sectoion----  -->
     <main class="flex-shrink-0">
         <div class="container  py-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for Taco Cat</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for Loan Shark</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        // get user input
-                        function getValue() {
+                       // Code Goes Here
                         
-                          document.getElementById("alert").classList.add("invisible");
-                          // get user string for page
-                          let userString = document.getElementById('stringInput').value;
-                          // check for palindrome
-                          let returnObj = checkForPalindrome(userString);
-                          // display message to user
-                          displayMessage(returnObj);
-                        
-                        }
-                        
-                        // check if string is palindrome 
-                        function checkForPalindrome(userString) {
-                        
-                          // user input is set to lower case
-                          userString = userString.toLowerCase();
-                        
-                          let regex = /[^a-z0-9]/gi;
-                          userString = userString.replace(regex, "");
-                        
-                          let reverseArray = [];
-                        
-                          let returnObj = {};
-                        
-                          for (let index = userString.length - 1; index >= 0; index--) {
-                            reverseArray += userString[index];
-                          }
-                        
-                          if (reverseArray == userString) {
-                            returnObj.msg = "Nicely Done! You Entered A Palindrome";
-                          } else {
-                            returnObj.msg = "The Word Sentance, Or Phrase Is Not A Palindrome";
-                          }
-                        
-                          returnObj.reversed = reverseArray;
-                        
-                          return returnObj;
-                        }
-                        
-                        
-                        // display a message to the string
-                        function displayMessage(returnObj) {
-                        
-                          document.getElementById("alert-header").innerHTML = returnObj.msg;
-                          document.getElementById("message").innerHTML = `Your Phrase Reversed Is ${returnObj.reversed}`;
-                          document.getElementById("alert").classList.remove("invisible");
-                        }
 
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <h5 class="lead fw-normal border-1 border-bottom border-dark p-2">Code Explaination For Taco Cat
+                    <h5 class="lead fw-normal border-1 border-bottom border-dark p-2">Code Explaination For Loan Shark
                     </h5>
                     <p class="fw-bolder">#######</p>
                 </div>
