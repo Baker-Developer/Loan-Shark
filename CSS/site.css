@@ -5,6 +5,8 @@
     --white-color: rgb(255, 255, 255);
 }
 
+
+
 footer {
     padding-right: 1rem;
 }
@@ -91,14 +93,13 @@ main>.container {
     color: var(--primary-color)
 }
 
-.tableBackground {
-    background-color:  var(--primary-color);
-    color: var(--white-color);
-}
-
-
 @media screen and (max-width: 400px) {
-    .responsiveicon {
+    #responsiveicon {
         font-size: 18vw;
     }
+}
+
+.tableBackground {
+    background-color: var(--primary-color);
+    color: var(--white-color);
 }
