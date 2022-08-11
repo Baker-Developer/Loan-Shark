@@ -3,6 +3,7 @@
     --secondary-color: rgb(118, 19, 230);
     --dark-color: rgb(36, 36, 36);
     --white-color: rgb(255, 255, 255);
+    --secondary-color-alt: rgb(42, 41, 49);
 }
 
 
@@ -90,7 +91,7 @@ main>.container {
 
 .monthlyPayments {
     font-size: 50px;
-    color: var(--primary-color)
+    color: var(--secondary-color-alt)
 }
 
 @media screen and (max-width: 400px) {
@@ -98,6 +99,11 @@ main>.container {
         font-size: 18vw;
     }
 }
+
+#btnSubmit {
+    width: 100px;
+}
+
 
 .tableBackground {
     background-color: var(--primary-color);

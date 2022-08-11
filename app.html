@@ -53,45 +53,45 @@
     <main class="flex-shrink-0">
         <div class="container table-responsive mt-5">
             <div class="row">
-                <div class="col-6 border p-3 bg-light">
+                <div class="col-6 border p-2 bg-light">
                     <div class="row">
                         <span>
-                            Loan Amount <input type="number" class="form-control" aria-label="Loan Amount"
-                                id="balance">
+                            Loan Amount <input type="number" class="form-control" aria-label="Loan Amount" value="15000" id="balance" step="500">
                         </span>
                     </div>
                     <div class="row">
                         <span>
-                            Payments <input type="number" class="form-control" aria-label="Payments" id="term">
+                            Payments <input type="number" class="form-control" value="60" aria-label="Payments" id="term" step="2">
                         </span>
                     </div>
                     <div class="row">
                         <span>
-                            Rate <input type="number" class="form-control" aria-label="Rate" id="rate">
+                            Rate <input type="number" class="form-control" value="3" aria-label="Rate" id="rate" step="2">
                         </span>
                     </div>
-                    <div class="row p-4">
+                    <div class="row p-3 flex-row-reverse">
                         <button type="button" class="btn btn-success" id="btnSubmit">Calculate</button>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="row">
                         <h4 class="text-center text-dark">Your Monthly Payments</h4>
-                        <span class="text-lg-center p-5 monthlyPayments"></span>
+                        <span class="text-lg-center p-5 monthlyPayments" id="MonthlyPayments"></span>
                     </div>
                     <div class="row">
-                        <span class="totalPrincipal">Total Principal:</span>
+                        <span class="totalPrincipal">Total Principal:<span id="TotalPrincipal"> </span></span>
                     </div>
                     <div class="row">
-                        <span class="totalInterest">Total Interest:</span>
+                        <span class="totalInterest" id="TotalInterest">Total Interest:<span id="id=" TotalInterest>
+                            </span></span>
                     </div>
                     <div class="row">
-                        <span class="totalCost" >Total Cost:</span>
+                        <span class="totalCost" id="TotalCost">Total Cost:<span id="id=" TotalCost> </span></span>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-12 py-3 gy-5"></div>
+                    <div class="col-12 gy-3"></div>
                     <table class="table table-striped">
                         <thead class="tableBackground">
                             <tr>
@@ -105,7 +105,7 @@
                         </thead>
                         <tbody>
 
-                            <tr id="message">
+                            <tr id="tableMessage">
                                 <!--    A Output Is Needed Here   -->
 
                                 <!-- <th scope="row">#</th>
