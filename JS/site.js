@@ -3,7 +3,7 @@ function getInput() {
     let Term = document.getElementById('term').value;
     let Rate = document.getElementById('rate').value;
 
-    // Parse data into integers
+
     Balance = parseInt(Balance);
     Term = parseInt(Term);
     Rate = parseInt(Rate);
@@ -16,7 +16,12 @@ function getInput() {
         Principal Payment = Total Monthly Payment - Interest Payment
         At end each month, Remaining Balance = Previous Remaining Balance - principal payments 
  */
-    
+
+    let TotalMonthlyPayment = Balance * Rate / 1200 / 1 - 1 + Rate / 1200 ^ -Term;
+    let RemainingBalance = Balance;
+    let InterestPayment = RemainingBalance * Rate / 1200;
+    let PrincipalPayment = TotalMonthlyPayment - InterestPayment;
+    RemainingBalance = RemainingBalance - PrincipalPayment;
 
 
 
@@ -33,6 +38,17 @@ function getInput() {
     the month
  */
 
-    //Output the month in a for loop starting at 1 and ending at the Rate end
-
+    //Output the month in a for loop starting at 1 and ending at the Term
+    document.getElementById("TotalPrincipal").innerHTML = `${PrincipalPayment}`;
+    document.getElementById("TotalInterest").innerHTML = `${InterestPayment}`;
+    document.getElementById("TotalCost").innerHTML = `${PrincipalPayment + InterestPayment}`;
+    for (let i = 1; i < Term; i++) {
+        let display = [];
+        display = document.getElementById("tableMessage").innerHTML = `<th scope="row">#</th>
+        <td>#</td>
+        <td>#</td>
+        <td>#</td>
+        <td>#</td>
+        <td>#</td> `;
+    }
 }
