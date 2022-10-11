@@ -104,8 +104,15 @@ main>.container {
     width: 100px;
 }
 
-
 .tableBackground {
     background-color: var(--primary-color);
     color: var(--white-color);
 }
+
+/* nav {
+    
+}
+
+footer {
+   
+} */
