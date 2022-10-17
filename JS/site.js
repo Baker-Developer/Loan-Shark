@@ -1,42 +1,81 @@
 function getInput() {
 
+    // get the values from the user
     let loanBalance = document.getElementById('balance').value;
     let loanTerm = document.getElementById('term').value;
     let loanRate = document.getElementById('rate').value;
 
 
+    // parse into integers
     loanBalance = parseInt(loanBalance);
     loanTerm = parseInt(loanTerm);
     loanRate = parseInt(loanRate);
 
-    
+
+    // check if values are integers
+    if (Number.isInteger(loanBalance) && Number.isInteger(loanTerm) && Number.isInteger(loanRate)) {
+        // call calculateValues
+        numbers = calculateValues(loanBalance, loanTerm, loanRate);
+        // call displayValues
+        displayValues(numbers);
+    } else {
+        alert('Enter a integer');
+    }
+}
+
+function calculateValues(loanBalance, loanTerm, loanRate) {
+
+    let numbers = [];
+
+    // loop from first month 1 to the user selected month
+    for (let i = 1; i <= loanTerm; i++) {
+        numbers.push(i);
+    }
+
+    // calculate the current remaining balance for the before calculations of months 
+    let previousRemainingBalance = loanBalance;
+
+    // calculate the totalMonthlyPayment for the amount of months
+    let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)))
+    console.log(Math.round(totalMonthlyPayment));
+    // numbers.push(`total monthly payment ` + Math.round(totalMonthlyPayment));
+
+    // calculate the interestPayment for the amount of months
+    let interestPayment = previousRemainingBalance * loanRate / 1200;
+    console.log(Math.round(interestPayment));
+    // numbers.push(`Interest Payment ` + Math.round(interestPayment));
+
+    // calculate the principalPayment for the amount of months
+    let principalPayment = totalMonthlyPayment - interestPayment;
+    console.log(Math.round(principalPayment));
+    // numbers.push(`total Principal Payment ` + Math.round(principalPayment));
+
+    // calculate the totalInterest for the amount of months 
+    let totalInterest = (loanBalance + interestPayment) - loanBalance;
+    console.log(Math.round(totalInterest));
+    // numbers.push(`total Interest Payment ` + Math.round(principalPayment));
+
+    // calculate the current remaining balance for the amount of months 
+    let currentRemainingBalance = previousRemainingBalance - principalPayment;
+    console.log(Math.round(currentRemainingBalance));
+    // numbers.push(`total Current Balance ` + Math.round(principalPayment));
+
+    return numbers;
+}
+
+
+function displayValues(calculatedNumbers) {
+
+    let templateRow = "";
+
+    for (let i = 0; i <= calculatedNumbers.length; i++) {
+        let number = numbers[i];
+        templateRow += `<tr><td>${number}</td></tr>`;
+    }
 
 
 
-// Total Monthly Payment = (amount loaned) * (rate/1200) / (1 – (1 + rate/1200)(-Number of Months) )
-// Remaining Balance before the very first month equals the amount of the loan.
-// Interest Payment = Previous Remaining Balance * rate/1200
-// Principal Payment = Total Monthly Payment - Interest Payment
-// At end each month, Remaining Balance = Previous Remaining Balance - principal payments
-let monthlyPayments = (loanBalance) * (loanRate/1200) / (1 - (1 + loanRate/1200 * -loanTerm))
-let remainingBalance = loanBalance;
-let interestPayment = remainingBalance * loanRate / 1200;
-let principalPayment = monthlyPayments - interestPayment;
-remainingBalance =  remainingBalance - principalPayment;
 
-
-
-//     The output should include the following:
-// 1. The month (1 corresponding to the 1st
-// month of payment, through the total
-// number of months)
-// 2. The payment amount
-// 3. The principal paid this month
-// 4. The interest paid this month
-// 5. The total interest paid to date
-// 6. The remaining loan balance at the end of
-// the month
-
-
+    document.getElementById('results').innerHTML = templateRow;
 
 }
