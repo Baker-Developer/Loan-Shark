@@ -57,40 +57,58 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     console.log(Math.round(currentRemainingBalance));
     // numbers.push(`total Current Balance ` + Math.round(principalPayment));
 
-   
+
 
     let TotalMonthlyPaymentPerMonth = totalMonthlyPayment; // Second On The List
     let PaymentPricipalPerMonth = principalPayment; // Third on the list
-    let MainInterestPerMonth = interestPayment;  // Fourth On The List
+    let MainInterestPerMonth = interestPayment; // Fourth On The List
     let ToalInterestPerMonth = totalInterest; // Fifth  On The List
     let CurrentBalancePerMonth = currentRemainingBalance; // Last On The List
 
-     // loop from first month 1 to the user selected month
-     for (let i = 1; i <= loanTerm; i++) {
+    // loop from first month 1 to the user selected month
+    for (let i = 1; i <= loanTerm; i++) {
         numbers.push(i); // First On The List
-        // Calculate the payment based on the current balance
-        CurrentBalancePerMonth--;
-        console.log(Math.round(CurrentBalancePerMonth));
+     
+        // Calcualte all the values in the loan term
+        numbers.push(Math.round(TotalMonthlyPaymentPerMonth).toPrecision(5));
+        // Loop until the end of the loan term the totalMonthlyPayment
+
+        // Loop until the end of the loan term principal payment 
+
     }
-    
 
     return numbers;
 }
 
 
-function displayValues(calculatedNumbers) {
+function displayValues(numbers) {
 
-    let templateRow = "";
+    // get the table body
+    let tableBody = document.getElementById("results");
 
-    for (let i = 0; i <= calculatedNumbers.length; i++) {
-        let number = numbers[i];
-        templateRow += `<tr><td>${number}</td></tr>`;
+    // get the template row
+    let templateRow = document.getElementById("numbersTemplate");
+
+    // clear table first
+    tableBody.innerHTML = "";
+
+    for (let i = 0; i < numbers.length; i += 2) {
+        let tableRow = document.importNode(templateRow.content, true);
+
+        // grab use the to put into the array
+        let rowCols = tableRow.querySelectorAll("td");
+        rowCols[0].textContent = numbers[i];
+        rowCols[1].textContent = numbers[i + 1];
+        // rowCols[2].textContent = numbers[i + 2];
+        // rowCols[3].textContent = numbers[i + 3];
+        // rowCols[4].textContent = numbers[i + 4];
+        // rowCols[5].textContent = numbers[i + 5];
+        // rowCols[6].textContent = numbers[i + 6];
+
+        tableBody.appendChild(tableRow);
     }
 
-
-
-
-    document.getElementById('results').innerHTML = templateRow;
+    // document.getElementById('results').innerHTML = templateRow;
 
 
 }
