@@ -71,20 +71,20 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
      
         // Calcualte all the values in the loan term
         // Loop until the end of the loan term the totalMonthlyPayment
-        numbers.push(Math.round(TotalMonthlyPaymentPerMonth).toPrecision(5));
+        numbers.push((TotalMonthlyPaymentPerMonth).toPrecision(5));
     
 
         // Loop until the end of the loan term principal payment 
-        numbers.push(Math.round(PaymentPricipalPerMonth).toPrecision(5));
+        numbers.push((PaymentPricipalPerMonth).toPrecision(5));
 
         // Loop until the end of the end the main interest payment
-        numbers.push(Math.round(MainInterestPerMonth).toPrecision(5))
+        numbers.push((MainInterestPerMonth).toPrecision(5))
 
         // Loop until the end of the total interest per month
-        numbers.push(Math.round(ToalInterestPerMonth).toPrecision(5))
+        numbers.push((ToalInterestPerMonth).toPrecision(5))
 
         // Loop until the end of the month term on the balance
-        numbers.push(Math.round(CurrentBalancePerMonth).toPrecision(5))
+        numbers.push((CurrentBalancePerMonth).toPrecision(7))
     }
 
     return numbers;
