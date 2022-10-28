@@ -35,26 +35,26 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
 
     // calculate the totalMonthlyPayment for the amount of months
     let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)))
-    console.log(Math.round(totalMonthlyPayment)); // Second On The List
+   
 
     // calculate the interestPayment for the amount of months
     let interestPayment = previousRemainingBalance * loanRate / 1200;
-    console.log(Math.round(interestPayment)); // Fourth On The List
+    
     // numbers.push(`Interest Payment ` + Math.round(interestPayment));
 
     // calculate the principalPayment for the amount of months
     let principalPayment = totalMonthlyPayment - interestPayment;
-    console.log(Math.round(principalPayment)); // Third on the list
+    
     // numbers.push(`total Principal Payment ` + Math.round(principalPayment));
 
     // calculate the totalInterest for the amount of months 
     let totalInterest = (loanBalance + interestPayment) - loanBalance;
-    console.log(Math.round(totalInterest)); // Fifth  On The List
+  
     // numbers.push(`total Interest Payment ` + Math.round(principalPayment));
 
     // calculate the current remaining balance for the amount of months 
     let currentRemainingBalance = previousRemainingBalance - principalPayment; // Last On The List
-    console.log(Math.round(currentRemainingBalance));
+    
     // numbers.push(`total Current Balance ` + Math.round(principalPayment));
 
 
@@ -99,6 +99,7 @@ function displayValues(numbers) {
     // get the template row
     let templateRow = document.getElementById("numbersTemplate");
 
+
     // clear table first
     tableBody.innerHTML = "";
 
@@ -117,7 +118,7 @@ function displayValues(numbers) {
         tableBody.appendChild(tableRow);
     }
 
-    // document.getElementById('results').innerHTML = templateRow;
+    
 
 
 }
