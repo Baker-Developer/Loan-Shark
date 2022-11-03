@@ -30,7 +30,13 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
 
 
 
-    // calculate the current remaining balance for the before calculations of months 
+
+
+    // loop from first month 1 to the user selected month
+    for (let i = 1; i <= loanTerm; i++) {
+
+
+            // calculate the current remaining balance for the before calculations of months 
     let previousRemainingBalance = loanBalance;
 
     // calculate the totalMonthlyPayment for the amount of months
@@ -64,9 +70,6 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     let MainInterestPerMonth = interestPayment; // Fourth On The List
     let ToalInterestPerMonth = totalInterest; // Fifth  On The List
     let CurrentBalancePerMonth = currentRemainingBalance; // Last On The List
-
-    // loop from first month 1 to the user selected month
-    for (let i = 1; i <= loanTerm; i++) {
         numbers.push(i); // First On The List
      
         // Calcualte all the values in the loan term
