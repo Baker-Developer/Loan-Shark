@@ -51,21 +51,23 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     // calculate the current remaining balance for the amount of months 
     let currentRemainingBalance = previousRemainingBalance - principalPayment; // Last On The List
 
-
+   
     let TotalMonthlyPaymentPerMonth = totalMonthlyPayment; // Second On The List
-    let PaymentPricipalPerMonth = principalPayment; // Third on the list
+    let PaymentPricipalPerMonth =  principalPayment; // Third on the list
     let MainInterestPerMonth = interestPayment; // Fourth On The List
     let ToalInterestPerMonth = totalInterest; // Fifth  On The List
     let CurrentBalancePerMonth = currentRemainingBalance; // Last On The List
-    
+   
+
     for (let i = 1; i <= loanTerm; i++) {
+        
         numbers.push(i); // First On The List
 
-
+        
         // Loop until the end of the loan term the totalMonthlyPayment
         numbers.push((TotalMonthlyPaymentPerMonth).toPrecision(5)); // second on the list
        
-
+        
         // Loop until the end of the loan term principal payment 
         numbers.push((PaymentPricipalPerMonth).toPrecision(5)); // third on the list
 
