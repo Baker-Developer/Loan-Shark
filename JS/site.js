@@ -28,41 +28,28 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
 
     let numbers = [];
 
-
-
-
-
-    // loop from first month 1 to the user selected month
-    for (let i = 1; i <= loanTerm; i++) {
-
-
-            // calculate the current remaining balance for the before calculations of months 
+    // calculate the current remaining balance for the before calculations of months 
     let previousRemainingBalance = loanBalance;
 
     // calculate the totalMonthlyPayment for the amount of months
     let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)))
-   
+
 
     // calculate the interestPayment for the amount of months
     let interestPayment = previousRemainingBalance * loanRate / 1200;
-    
-    // numbers.push(`Interest Payment ` + Math.round(interestPayment));
+
+
 
     // calculate the principalPayment for the amount of months
     let principalPayment = totalMonthlyPayment - interestPayment;
-    
-    // numbers.push(`total Principal Payment ` + Math.round(principalPayment));
+
 
     // calculate the totalInterest for the amount of months 
     let totalInterest = (loanBalance + interestPayment) - loanBalance;
-  
-    // numbers.push(`total Interest Payment ` + Math.round(principalPayment));
+
 
     // calculate the current remaining balance for the amount of months 
     let currentRemainingBalance = previousRemainingBalance - principalPayment; // Last On The List
-    
-    // numbers.push(`total Current Balance ` + Math.round(principalPayment));
-
 
 
     let TotalMonthlyPaymentPerMonth = totalMonthlyPayment; // Second On The List
@@ -70,15 +57,17 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     let MainInterestPerMonth = interestPayment; // Fourth On The List
     let ToalInterestPerMonth = totalInterest; // Fifth  On The List
     let CurrentBalancePerMonth = currentRemainingBalance; // Last On The List
-        numbers.push(i); // First On The List
-     
-        // Calcualte all the values in the loan term
-        // Loop until the end of the loan term the totalMonthlyPayment
-        numbers.push((TotalMonthlyPaymentPerMonth).toPrecision(5));
     
+    for (let i = 1; i <= loanTerm; i++) {
+        numbers.push(i); // First On The List
+
+
+        // Loop until the end of the loan term the totalMonthlyPayment
+        numbers.push((TotalMonthlyPaymentPerMonth).toPrecision(5)); // second on the list
+       
 
         // Loop until the end of the loan term principal payment 
-        numbers.push((PaymentPricipalPerMonth).toPrecision(5));
+        numbers.push((PaymentPricipalPerMonth).toPrecision(5)); // third on the list
 
         // Loop until the end of the end the main interest payment
         numbers.push((MainInterestPerMonth).toPrecision(5))
@@ -88,6 +77,7 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
 
         // Loop until the end of the month term on the balance
         numbers.push((CurrentBalancePerMonth).toPrecision(7))
+
     }
 
     return numbers;
@@ -109,7 +99,7 @@ function displayValues(numbers) {
     for (let i = 0; i < numbers.length; i += 6) {
         let tableRow = document.importNode(templateRow.content, true);
 
-  
+
         let rowCols = tableRow.querySelectorAll("td");
         rowCols[0].textContent = numbers[i];
         rowCols[1].textContent = numbers[i + 1];
@@ -121,7 +111,7 @@ function displayValues(numbers) {
         tableBody.appendChild(tableRow);
     }
 
-    
+
 
 
 }
