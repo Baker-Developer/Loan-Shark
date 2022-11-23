@@ -25,7 +25,7 @@ function getInput() {
 }
 
 function calculateValues(loanBalance, loanTerm, loanRate) {
-
+    
     let numbers = [];
 
     // calculate the current remaining balance for the before calculations of months 
