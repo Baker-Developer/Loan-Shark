@@ -25,7 +25,7 @@ function getInput() {
 }
 
 function calculateValues(loanBalance, loanTerm, loanRate) {
-    
+
     let numbers = [];
 
     // calculate the current remaining balance for the before calculations of months 
@@ -34,54 +34,49 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     // calculate the totalMonthlyPayment for the amount of months
     let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)))
 
-
     // calculate the interestPayment for the amount of months
     let interestPayment = previousRemainingBalance * loanRate / 1200;
-
-
 
     // calculate the principalPayment for the amount of months
     let principalPayment = totalMonthlyPayment - interestPayment;
 
-
     // calculate the totalInterest for the amount of months 
     let totalInterest = (loanBalance + interestPayment) - loanBalance;
-
 
     // calculate the current remaining balance for the amount of months 
     let currentRemainingBalance = previousRemainingBalance - principalPayment; // Last On The List
 
-   
+
     let TotalMonthlyPaymentPerMonth = totalMonthlyPayment; // Second On The List
-    let PaymentPricipalPerMonth =  principalPayment; // Third on the list
+    let PaymentPricipalPerMonth = principalPayment; // Third on the list
     let MainInterestPerMonth = interestPayment; // Fourth On The List
     let ToalInterestPerMonth = totalInterest; // Fifth  On The List
     let CurrentBalancePerMonth = currentRemainingBalance; // Last On The List
-   
+
+    // let AllTimeTotalInterest = ToalInterestPerMonth * loanTerm;
+    // let AllTimeCost = AllTimeTotalInterest + loanBalance; 
+
+     // write a for loop that calculates the payment based on the current balance
+  
 
     for (let i = 1; i <= loanTerm; i++) {
         
         numbers.push(i); // First On The List
 
-        
         // Loop until the end of the loan term the totalMonthlyPayment
         numbers.push((TotalMonthlyPaymentPerMonth).toPrecision(5)); // second on the list
-       
         
-        // Loop until the end of the loan term principal payment 
         numbers.push((PaymentPricipalPerMonth).toPrecision(5)); // third on the list
+    
 
-        // Loop until the end of the end the main interest payment
-        numbers.push((MainInterestPerMonth).toPrecision(5))
+        numbers.push((MainInterestPerMonth).toPrecision(5)) // fouth on the list
+        
+        numbers.push((ToalInterestPerMonth).toPrecision(5)) // fifth on the list
 
-        // Loop until the end of the total interest per month
-        numbers.push((ToalInterestPerMonth).toPrecision(5))
-
-        // Loop until the end of the month term on the balance
-        numbers.push((CurrentBalancePerMonth).toPrecision(7))
-
+        numbers.push((CurrentBalancePerMonth).toPrecision(7)) // sixth on the list
+        
     }
-
+    
     return numbers;
 }
 
