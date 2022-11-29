@@ -56,32 +56,33 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     // let AllTimeTotalInterest = ToalInterestPerMonth * loanTerm;
     // let AllTimeCost = AllTimeTotalInterest + loanBalance; 
 
-     // write a for loop that calculates the payment based on the current balance
-  
+    // write a for loop that calculates the payment based on the current balance
+
 
     for (let i = 1; i <= loanTerm; i++) {
-        
+
         numbers.push(i); // First On The List
 
         // Loop until the end of the loan term the totalMonthlyPayment
         numbers.push((TotalMonthlyPaymentPerMonth).toPrecision(5)); // second on the list
-        
+
         numbers.push((PaymentPricipalPerMonth).toPrecision(5)); // third on the list
-    
+
 
         numbers.push((MainInterestPerMonth).toPrecision(5)) // fouth on the list
-        
+
         numbers.push((ToalInterestPerMonth).toPrecision(5)) // fifth on the list
 
         numbers.push((CurrentBalancePerMonth).toPrecision(7)) // sixth on the list
-        
+
     }
-    
+
     return numbers;
 }
 
 
 function displayValues(numbers) {
+
 
     // get the table body
     let tableBody = document.getElementById("results");
@@ -106,9 +107,11 @@ function displayValues(numbers) {
         rowCols[5].textContent = numbers[i + 5];
 
         tableBody.appendChild(tableRow);
+
+        document.getElementById("MonthlyPayments").innerHTML = numbers[i + 1]; // displays the monthly payment
+        document.getElementById("TotalPrincipal").innerHTML = numbers[i + 2]; // displays the total principal
+        document.getElementById("TotalInterest").innerHTML = numbers[i + 3]; // displays the total interest
+        document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
     }
-
-
-
 
 }
