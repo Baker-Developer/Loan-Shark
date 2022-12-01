@@ -51,7 +51,7 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     let PaymentPricipalPerMonth = principalPayment; // Third on the list
     let MainInterestPerMonth = interestPayment; // Fourth On The List
     let ToalInterestPerMonth = totalInterest; // Fifth  On The List
-    let CurrentBalancePerMonth = currentRemainingBalance; // Last On The List
+    let CurrentBalancePerMonth =  currentRemainingBalance; // Last On The List
 
     // let AllTimeTotalInterest = ToalInterestPerMonth * loanTerm;
     // let AllTimeCost = AllTimeTotalInterest + loanBalance; 
