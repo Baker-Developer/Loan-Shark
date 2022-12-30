@@ -19,7 +19,7 @@ function getInput() {
         // call displayValues
         displayValues(numbers);
     } else {
-        alert('Enter a integer');
+        alert('Enter A Integer');
     }
 
 }
@@ -28,7 +28,7 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
 
     let numbers = [];
 
-    // calculate the current remaining balance for the before calculations of months 
+    // calculate the current remaining balance for the BEFORE calculations of months 
     let previousRemainingBalance = loanBalance;
 
     // calculate the totalMonthlyPayment for the amount of months
@@ -53,6 +53,8 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     let ToalInterestPerMonth = totalInterest; // Fifth  On The List
     let CurrentBalancePerMonth =  currentRemainingBalance; // Last On The List
 
+
+
     // let AllTimeTotalInterest = ToalInterestPerMonth * loanTerm;
     // let AllTimeCost = AllTimeTotalInterest + loanBalance; 
 
@@ -74,8 +76,12 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
         numbers.push((ToalInterestPerMonth).toPrecision(5)) // fifth on the list
 
         numbers.push((CurrentBalancePerMonth).toPrecision(7)) // sixth on the list
-
+        
     }
+
+    
+
+
 
     return numbers;
 }
