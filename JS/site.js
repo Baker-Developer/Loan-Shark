@@ -47,39 +47,39 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     let currentRemainingBalance = previousRemainingBalance - principalPayment; // Last On The List
 
 
-    let TotalMonthlyPaymentPerMonth = totalMonthlyPayment; // Second On The List
+    let TotalMonthlyPaymentPerMonth = totalMonthlyPayment; // Second On The List DOES NOT CHANGE
     let PaymentPricipalPerMonth = principalPayment; // Third on the list
     let MainInterestPerMonth = interestPayment; // Fourth On The List
     let ToalInterestPerMonth = totalInterest; // Fifth  On The List
-    let CurrentBalancePerMonth =  currentRemainingBalance; // Last On The List
+    let CurrentBalancePerMonth = currentRemainingBalance; // Last On The List
+
+    // AFTER THIS ALL VALUES FOR THE FIRST MONTH OF THE LOAN  HAVE BEEN CALCULATED
 
 
+    // Now we need to calculate all of the monthly payments
+    
 
-    // let AllTimeTotalInterest = ToalInterestPerMonth * loanTerm;
-    // let AllTimeCost = AllTimeTotalInterest + loanBalance; 
 
-    // write a for loop that calculates the payment based on the current balance
-
+    /*
+    Take a look at what you’re doing inside/outside your for loop when calculating the monthly values. As it stands now, 
+    you’re calculating the first month of values and then just pushing those same values into your array each time your loop runs
+    */
 
     for (let i = 1; i <= loanTerm; i++) {
 
+        // Loop until the end of the loan term DOES NOT CHANGE
         numbers.push(i); // First On The List
-
-        // Loop until the end of the loan term the totalMonthlyPayment
+        // Loop until the end of the loan term the totalMonthlyPayment DOES NOT CHANGE
         numbers.push((TotalMonthlyPaymentPerMonth).toPrecision(5)); // second on the list
 
+
         numbers.push((PaymentPricipalPerMonth).toPrecision(5)); // third on the list
-
-
         numbers.push((MainInterestPerMonth).toPrecision(5)) // fouth on the list
-
         numbers.push((ToalInterestPerMonth).toPrecision(5)) // fifth on the list
-
         numbers.push((CurrentBalancePerMonth).toPrecision(7)) // sixth on the list
-        
     }
 
-    
+
 
 
 
