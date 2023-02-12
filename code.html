@@ -66,30 +66,16 @@
                             let loanRate = document.getElementById('rate').value;
                         
                         
-                            // parse into integers
+                            // parse loanBalance into integers
                             loanBalance = parseInt(loanBalance);
-                            // loanTerm = parseInt(loanTerm);
-                            // loanRate = parseInt(loanRate);
-                        
-                            // call calculateValues
-                            numbers = calculateValues(loanBalance, loanTerm, loanRate);
-                            // call displayValues
-                            displayValues(loanBalance, numbers, loanTerm);
-                        
-                            // check if values are integers
-                            // if (Number.isInteger(loanBalance) && Number.isInteger(loanTerm) && Number.isInteger(loanRate)) {
-                        
-                            // } else {
-                            //     alert('Enter A Integer');
-                            // }
-                        
+                    
                         }
                         
                         function calculateValues(loanBalance, loanTerm, loanRate) {
                         
                             let numbers = [];
                         
-                            //  let previousRemainingBalance = loanBalance;
+                      
                         
                             let totalMonthlyPayment = CalcMonthlyPayment(loanBalance, loanRate, loanTerm);
                         
@@ -129,7 +115,7 @@
                         
                         function CalcMonthlyPayment(loanBalance, loanRate, loanTerm) {
                         
-                            //  monthlyRate = CalcMonthlyRate(loanRate);
+                        
                             let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)));
                         
                             return totalMonthlyPayment;
@@ -140,15 +126,11 @@
                         }
                         
                         function CalcMonthlyInterest(loanBalance, monthlyRate) {
-                            // calculate the current remaining balance for the BEFORE calculations of months 
-                            // let previousRemainingBalance = loanBalance;
                             let interestPayment = monthlyRate * loanBalance;
                             return interestPayment;
                         }
                         
                         function CalcNewMonthlyInterest(balance, monthlyRate) {
-                            // calculate the current remaining balance for the BEFORE calculations of months 
-                            // let previousRemainingBalance = loanBalance;
                             let interestPayment = monthlyRate * balance;
                             return interestPayment;
                         }
@@ -183,7 +165,6 @@
                                 document.getElementById("MonthlyPayments").innerHTML = numbers[i + 1]; // displays the monthly payment
                                 document.getElementById("TotalPrincipal").innerHTML = loanBalance; // displays the total principal
                                 document.getElementById("TotalInterest").innerHTML = numbers[i + 4]; // displays the total interest
-                             //   document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
                                 document.getElementById("TotalPayments").innerHTML = loanTerm; // displays the total payments
                             }
                         
@@ -194,7 +175,7 @@
                 <div class="col-lg-4">
                     <h5 class="lead fw-normal border-1 border-bottom border-dark p-2">Code Explaination For Loan Shark
                     </h5>
-                    <p class="fw-bolder">After the user clicks the calculate button the
+                    <!-- <p class="fw-bolder">After the user clicks the calculate button the
                         getInput() function is called that collects the all the data from the
                         inputs forums. After this, the numbers varible
                         is used to hold the calculateValues() function data
@@ -210,6 +191,23 @@
                         using the totalInterest variable added to the newMonthlyRate variable. To find the monthly
                         principal
                         thoughout the loan term I subtract the totalMonthlyPayment - newMonthlyRate. I then use the
+                        balance subtracted by the monthlyPrincipal each time the loop runs. After all the calculations
+                        are completed, I push the values into the array then returning the values to getInput() function
+                        where the displayValues() function is called.</p> -->
+                    <p>After the user clicks the calculate button the
+                        getInput() function is called that collects the all the data from the
+                        inputs forums on the web page. We then calculate the loan amortization schedule by using the
+                        loanBalance, loanTerm, and loanRate and inputting the numbers into the calculateValues()
+                        function. The first function in the
+                        CalcMonthlyPayment() function is
+                        used first to calculate the monthly payment that stays the same throughout the loan term.
+                        Also before the for loop we get call CalcMonthlyRate() function that is a decimal that used to
+                        calculate the rate in the loop. Inside the for loop, I calculate the newMonthlyRate using the
+                        CalcNewMonthlyInterest() function
+                        and then
+                        using the totalInterest variable added to the newMonthlyRate variable. To find the monthly
+                        principal thoughout the loan term I subtract the totalMonthlyPayment - newMonthlyRate. I then
+                        use the
                         balance subtracted by the monthlyPrincipal each time the loop runs. After all the calculations
                         are completed, I push the values into the array then returning the values to getInput() function
                         where the displayValues() function is called.</p>

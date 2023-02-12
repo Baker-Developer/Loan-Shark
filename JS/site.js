@@ -50,13 +50,13 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
         // Loop until the end of the loan term DOES NOT CHANGE
         numbers.push(i); // First On The List 
         // Loop until the end of the loan term the totalMonthlyPayment DOES NOT CHANGE
-        numbers.push((totalMonthlyPayment).toFixed(7)); // second on the list 
+        numbers.push((totalMonthlyPayment).toPrecision(5)); // second on the list 
 
 
-        numbers.push((monthlyPrincipal).toFixed(7)); // third on the list
+        numbers.push((monthlyPrincipal).toPrecision(5)); // third on the list
 
-        numbers.push((newMonthlyRate).toFixed(7)) // fouth on the list
-        numbers.push((totalInterest).toFixed(7)) // fifth on the list
+        numbers.push((newMonthlyRate).toPrecision(5)) // fouth on the list
+        numbers.push((totalInterest).toPrecision(5)) // fifth on the list
         numbers.push((balance).toFixed(7)) // sixth on the list
         
 
