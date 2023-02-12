@@ -8,19 +8,20 @@ function getInput() {
 
     // parse into integers
     loanBalance = parseInt(loanBalance);
-    loanTerm = parseInt(loanTerm);
-    loanRate = parseInt(loanRate);
+    // loanTerm = parseInt(loanTerm);
+    // loanRate = parseInt(loanRate);
 
+    // call calculateValues
+    numbers = calculateValues(loanBalance, loanTerm, loanRate);
+    // call displayValues
+    displayValues(loanBalance, numbers, loanTerm);
 
     // check if values are integers
-    if (Number.isInteger(loanBalance) && Number.isInteger(loanTerm) && Number.isInteger(loanRate)) {
-        // call calculateValues
-        numbers = calculateValues(loanBalance, loanTerm, loanRate);
-        // call displayValues
-        displayValues(numbers);
-    } else {
-        alert('Enter A Integer');
-    }
+    // if (Number.isInteger(loanBalance) && Number.isInteger(loanTerm) && Number.isInteger(loanRate)) {
+
+    // } else {
+    //     alert('Enter A Integer');
+    // }
 
 }
 
@@ -28,66 +29,71 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
 
     let numbers = [];
 
-    // calculate the current remaining balance for the BEFORE calculations of months 
-    let previousRemainingBalance = loanBalance;
+    //  let previousRemainingBalance = loanBalance;
 
-    // calculate the totalMonthlyPayment for the amount of months
-    let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)))
+    let totalMonthlyPayment = CalcMonthlyPayment(loanBalance, loanRate, loanTerm);
 
-    // calculate the interestPayment for the amount of months
-    let interestPayment = previousRemainingBalance * loanRate / 1200;
-
-    // calculate the principalPayment for the amount of months
-    let principalPayment = totalMonthlyPayment - interestPayment;
-
-    // calculate the totalInterest for the amount of months 
-    let totalInterest = (loanBalance + interestPayment) - loanBalance;
-
-    // calculate the current remaining balance for the amount of months 
-    let currentRemainingBalance = previousRemainingBalance - principalPayment; // Last On The List
-
-
-    let TotalMonthlyPaymentPerMonth = totalMonthlyPayment; // Second On The List DOES NOT CHANGE
-    let PaymentPricipalPerMonth = principalPayment; // Third on the list
-    let MainInterestPerMonth = interestPayment; // Fourth On The List
-    let ToalInterestPerMonth = totalInterest; // Fifth  On The List
-    let CurrentBalancePerMonth = currentRemainingBalance; // Last On The List
-
-    // AFTER THIS ALL VALUES FOR THE FIRST MONTH OF THE LOAN  HAVE BEEN CALCULATED
-
-
-    // Now we need to calculate all of the monthly payments
-    
-
-
-    /*
-    Take a look at what you’re doing inside/outside your for loop when calculating the monthly values. As it stands now, 
-    you’re calculating the first month of values and then just pushing those same values into your array each time your loop runs
-    */
+    let balance = loanBalance;
+    let totalInterest = 0.0;
+    let monthlyInterest = 0.0;
+    let monthlyPrincipal = 0.0;
+    let monthlyRate = CalcMonthlyRate(loanRate);
+    let newMonthlyRate = 0.0;
 
     for (let i = 1; i <= loanTerm; i++) {
+        monthlyInterest = CalcMonthlyInterest(loanBalance, monthlyRate);
+        newMonthlyRate = CalcNewMonthlyInterest(balance, monthlyRate);
+        totalInterest += newMonthlyRate;
+        monthlyPrincipal = totalMonthlyPayment - newMonthlyRate;
+        balance -= monthlyPrincipal;
 
         // Loop until the end of the loan term DOES NOT CHANGE
-        numbers.push(i); // First On The List
+        numbers.push(i); // First On The List 
         // Loop until the end of the loan term the totalMonthlyPayment DOES NOT CHANGE
-        numbers.push((TotalMonthlyPaymentPerMonth).toPrecision(5)); // second on the list
+        numbers.push((totalMonthlyPayment).toFixed(7)); // second on the list 
 
 
-        numbers.push((PaymentPricipalPerMonth).toPrecision(5)); // third on the list
-        numbers.push((MainInterestPerMonth).toPrecision(5)) // fouth on the list
-        numbers.push((ToalInterestPerMonth).toPrecision(5)) // fifth on the list
-        numbers.push((CurrentBalancePerMonth).toPrecision(7)) // sixth on the list
+        numbers.push((monthlyPrincipal).toFixed(7)); // third on the list
+
+        numbers.push((newMonthlyRate).toFixed(7)) // fouth on the list
+        numbers.push((totalInterest).toFixed(7)) // fifth on the list
+        numbers.push((balance).toFixed(7)) // sixth on the list
+        
+
     }
-
-
 
 
 
     return numbers;
 }
 
+function CalcMonthlyPayment(loanBalance, loanRate, loanTerm) {
 
-function displayValues(numbers) {
+    //  monthlyRate = CalcMonthlyRate(loanRate);
+    let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)));
+
+    return totalMonthlyPayment;
+}
+
+function CalcMonthlyRate(loanRate) {
+    return loanRate / 1200;
+}
+
+function CalcMonthlyInterest(loanBalance, monthlyRate) {
+    // calculate the current remaining balance for the BEFORE calculations of months 
+    // let previousRemainingBalance = loanBalance;
+    let interestPayment = monthlyRate * loanBalance;
+    return interestPayment;
+}
+
+function CalcNewMonthlyInterest(balance, monthlyRate) {
+    // calculate the current remaining balance for the BEFORE calculations of months 
+    // let previousRemainingBalance = loanBalance;
+    let interestPayment = monthlyRate * balance;
+    return interestPayment;
+}
+
+function displayValues(loanBalance, numbers, loanTerm) {
 
 
     // get the table body
@@ -115,9 +121,10 @@ function displayValues(numbers) {
         tableBody.appendChild(tableRow);
 
         document.getElementById("MonthlyPayments").innerHTML = numbers[i + 1]; // displays the monthly payment
-        document.getElementById("TotalPrincipal").innerHTML = numbers[i + 2]; // displays the total principal
+        document.getElementById("TotalPrincipal").innerHTML = loanBalance; // displays the total principal
         document.getElementById("TotalInterest").innerHTML = numbers[i + 3]; // displays the total interest
         document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
+        document.getElementById("TotalPayments").innerHTML = loanTerm; // displays the total cost
     }
 
 }
