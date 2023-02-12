@@ -122,9 +122,9 @@ function displayValues(loanBalance, numbers, loanTerm) {
 
         document.getElementById("MonthlyPayments").innerHTML = numbers[i + 1]; // displays the monthly payment
         document.getElementById("TotalPrincipal").innerHTML = loanBalance; // displays the total principal
-        document.getElementById("TotalInterest").innerHTML = numbers[i + 3]; // displays the total interest
-        document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
-        document.getElementById("TotalPayments").innerHTML = loanTerm; // displays the total cost
+        document.getElementById("TotalInterest").innerHTML = numbers[i + 4]; // displays the total interest
+     //   document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
+        document.getElementById("TotalPayments").innerHTML = loanTerm; // displays the total payments
     }
 
 }
