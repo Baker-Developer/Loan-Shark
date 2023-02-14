@@ -40,13 +40,14 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
     let monthlyRate = CalcMonthlyRate(loanRate);
     let newMonthlyRate = 0.0;
 
+    let totalCombined = totalMonthlyPayment * loanTerm
+
     for (let i = 1; i <= loanTerm; i++) {
         monthlyInterest = CalcMonthlyInterest(loanBalance, monthlyRate);
         newMonthlyRate = CalcNewMonthlyInterest(balance, monthlyRate);
         totalInterest += newMonthlyRate;
         monthlyPrincipal = totalMonthlyPayment - newMonthlyRate;
         balance -= monthlyPrincipal;
-
 
         let balanceformated = new Intl.NumberFormat("en-US", {
             style: 'currency',
@@ -74,6 +75,7 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
             currencyDisplay: 'narrowSymbol'
         }).format(totalInterest);
         // Loop until the end of the loan term DOES NOT CHANGE
+       
         numbers.push(i); // First On The List 
         // Loop until the end of the loan term the totalMonthlyPayment DOES NOT CHANGE
         numbers.push((totalMonthlyPaymentFormatted)); // second on the list 
@@ -85,43 +87,9 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
         numbers.push((totalInterestFormatted)) // fifth on the list
         numbers.push((balanceformated)) // sixth on the list
 
-
     }
-
-
-
-    return numbers;
-}
-
-function CalcMonthlyPayment(loanBalance, loanRate, loanTerm) {
-
-    //  monthlyRate = CalcMonthlyRate(loanRate);
-    let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)));
-
-    return totalMonthlyPayment;
-}
-
-function CalcMonthlyRate(loanRate) {
-    return loanRate / 1200;
-}
-
-function CalcMonthlyInterest(loanBalance, monthlyRate) {
-    // calculate the current remaining balance for the BEFORE calculations of months 
-    // let previousRemainingBalance = loanBalance;
-    let interestPayment = monthlyRate * loanBalance;
-    return interestPayment;
-}
-
-function CalcNewMonthlyInterest(balance, monthlyRate) {
-    // calculate the current remaining balance for the BEFORE calculations of months 
-    // let previousRemainingBalance = loanBalance;
-    let interestPayment = monthlyRate * balance;
-    return interestPayment;
-}
-
-function displayValues(loanBalance, numbers, loanTerm) {
-
-
+   
+    
     // get the table body
     let tableBody = document.getElementById("results");
 
@@ -151,14 +119,44 @@ function displayValues(loanBalance, numbers, loanTerm) {
             currency: 'USD',
             currencyDisplay: 'narrowSymbol'
         }).format(loanBalance);
+        let totalCombinedFormatted = new Intl.NumberFormat("en-US", {
+            style: 'currency',
+            currency: 'USD',
+            currencyDisplay: 'narrowSymbol'
+        }).format(totalCombined);
 
-
-        
         document.getElementById("MonthlyPayments").innerHTML = numbers[i + 1]; // displays the monthly payment
         document.getElementById("TotalPrincipal").innerHTML = balanceformated; // displays the total principal
         document.getElementById("TotalInterest").innerHTML = numbers[i + 4]; // displays the total interest
-    //    document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
+        document.getElementById("TotalCost").innerHTML = totalCombinedFormatted; // displays the total cost
         document.getElementById("TotalPayments").innerHTML = loanTerm; // displays the total payments
     }
 
+    return numbers;
+}
+
+function CalcMonthlyPayment(loanBalance, loanRate, loanTerm) {
+
+    //  monthlyRate = CalcMonthlyRate(loanRate);
+    let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)));
+
+    return totalMonthlyPayment;
+}
+
+function CalcMonthlyRate(loanRate) {
+    return loanRate / 1200;
+}
+
+function CalcMonthlyInterest(loanBalance, monthlyRate) {
+    // calculate the current remaining balance for the BEFORE calculations of months 
+    // let previousRemainingBalance = loanBalance;
+    let interestPayment = monthlyRate * loanBalance;
+    return interestPayment;
+}
+
+function CalcNewMonthlyInterest(balance, monthlyRate) {
+    // calculate the current remaining balance for the BEFORE calculations of months 
+    // let previousRemainingBalance = loanBalance;
+    let interestPayment = monthlyRate * balance;
+    return interestPayment;
 }
