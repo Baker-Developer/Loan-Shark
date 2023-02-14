@@ -47,18 +47,44 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
         monthlyPrincipal = totalMonthlyPayment - newMonthlyRate;
         balance -= monthlyPrincipal;
 
+
+        let balanceformated = new Intl.NumberFormat("en-US", {
+            style: 'currency',
+            currency: 'USD',
+            currencyDisplay: 'narrowSymbol'
+        }).format(balance);
+        let totalMonthlyPaymentFormatted = new Intl.NumberFormat("en-US", {
+            style: 'currency',
+            currency: 'USD',
+            currencyDisplay: 'narrowSymbol'
+        }).format(totalMonthlyPayment);
+        let monthlyPrincipalFormatted = new Intl.NumberFormat("en-US", {
+            style: 'currency',
+            currency: 'USD',
+            currencyDisplay: 'narrowSymbol'
+        }).format(monthlyPrincipal);
+        let newMonthlyRateFormatted = new Intl.NumberFormat("en-US", {
+            style: 'currency',
+            currency: 'USD',
+            currencyDisplay: 'narrowSymbol'
+        }).format(newMonthlyRate);
+        let totalInterestFormatted = new Intl.NumberFormat("en-US", {
+            style: 'currency',
+            currency: 'USD',
+            currencyDisplay: 'narrowSymbol'
+        }).format(totalInterest);
         // Loop until the end of the loan term DOES NOT CHANGE
         numbers.push(i); // First On The List 
         // Loop until the end of the loan term the totalMonthlyPayment DOES NOT CHANGE
-        numbers.push((totalMonthlyPayment).toPrecision(5)); // second on the list 
+        numbers.push((totalMonthlyPaymentFormatted)); // second on the list 
 
 
-        numbers.push((monthlyPrincipal).toPrecision(5)); // third on the list
+        numbers.push((monthlyPrincipalFormatted)); // third on the list
 
-        numbers.push((newMonthlyRate).toPrecision(5)) // fouth on the list
-        numbers.push((totalInterest).toPrecision(5)) // fifth on the list
-        numbers.push((balance).toFixed(7)) // sixth on the list
-        
+        numbers.push((newMonthlyRateFormatted)) // fouth on the list
+        numbers.push((totalInterestFormatted)) // fifth on the list
+        numbers.push((balanceformated)) // sixth on the list
+
 
     }
 
@@ -120,10 +146,18 @@ function displayValues(loanBalance, numbers, loanTerm) {
 
         tableBody.appendChild(tableRow);
 
+        let balanceformated = new Intl.NumberFormat("en-US", {
+            style: 'currency',
+            currency: 'USD',
+            currencyDisplay: 'narrowSymbol'
+        }).format(loanBalance);
+
+
+        
         document.getElementById("MonthlyPayments").innerHTML = numbers[i + 1]; // displays the monthly payment
-        document.getElementById("TotalPrincipal").innerHTML = loanBalance; // displays the total principal
+        document.getElementById("TotalPrincipal").innerHTML = balanceformated; // displays the total principal
         document.getElementById("TotalInterest").innerHTML = numbers[i + 4]; // displays the total interest
-     //   document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
+    //    document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
         document.getElementById("TotalPayments").innerHTML = loanTerm; // displays the total payments
     }
 

@@ -66,16 +66,30 @@
                             let loanRate = document.getElementById('rate').value;
                         
                         
-                            // parse loanBalance into integers
+                            // parse into integers
                             loanBalance = parseInt(loanBalance);
-                    
+                            // loanTerm = parseInt(loanTerm);
+                            // loanRate = parseInt(loanRate);
+                        
+                            // call calculateValues
+                            numbers = calculateValues(loanBalance, loanTerm, loanRate);
+                            // call displayValues
+                            displayValues(loanBalance, numbers, loanTerm);
+                        
+                            // check if values are integers
+                            // if (Number.isInteger(loanBalance) && Number.isInteger(loanTerm) && Number.isInteger(loanRate)) {
+                        
+                            // } else {
+                            //     alert('Enter A Integer');
+                            // }
+                        
                         }
                         
                         function calculateValues(loanBalance, loanTerm, loanRate) {
                         
                             let numbers = [];
                         
-                      
+                            //  let previousRemainingBalance = loanBalance;
                         
                             let totalMonthlyPayment = CalcMonthlyPayment(loanBalance, loanRate, loanTerm);
                         
@@ -93,17 +107,43 @@
                                 monthlyPrincipal = totalMonthlyPayment - newMonthlyRate;
                                 balance -= monthlyPrincipal;
                         
+                        
+                                let balanceformated = new Intl.NumberFormat("en-US",{
+                                    style:'currency',
+                                    currency:'USD',
+                                    currencyDisplay: 'narrowSymbol'
+                                }).format(balance);
+                                let totalMonthlyPaymentFormatted = new Intl.NumberFormat("en-US",{
+                                    style:'currency',
+                                    currency:'USD',
+                                    currencyDisplay: 'narrowSymbol'
+                                }).format(totalMonthlyPayment);
+                                let monthlyPrincipalFormatted = new Intl.NumberFormat("en-US",{
+                                    style:'currency',
+                                    currency:'USD',
+                                    currencyDisplay: 'narrowSymbol'
+                                }).format(monthlyPrincipal);
+                                let newMonthlyRateFormatted = new Intl.NumberFormat("en-US",{
+                                    style:'currency',
+                                    currency:'USD',
+                                    currencyDisplay: 'narrowSymbol'
+                                }).format(newMonthlyRate);
+                                let totalInterestFormatted = new Intl.NumberFormat("en-US",{
+                                    style:'currency',
+                                    currency:'USD',
+                                    currencyDisplay: 'narrowSymbol'
+                                }).format(totalInterest);
                                 // Loop until the end of the loan term DOES NOT CHANGE
                                 numbers.push(i); // First On The List 
                                 // Loop until the end of the loan term the totalMonthlyPayment DOES NOT CHANGE
-                                numbers.push((totalMonthlyPayment).toFixed(7)); // second on the list 
+                                numbers.push((totalMonthlyPaymentFormatted)); // second on the list 
                         
                         
-                                numbers.push((monthlyPrincipal).toFixed(7)); // third on the list
+                                numbers.push((monthlyPrincipalFormatted)); // third on the list
                         
-                                numbers.push((newMonthlyRate).toFixed(7)) // fouth on the list
-                                numbers.push((totalInterest).toFixed(7)) // fifth on the list
-                                numbers.push((balance).toFixed(7)) // sixth on the list
+                                numbers.push((newMonthlyRateFormatted)) // fouth on the list
+                                numbers.push((totalInterestFormatted)) // fifth on the list
+                                numbers.push((balanceformated)) // sixth on the list
                                 
                         
                             }
@@ -115,7 +155,7 @@
                         
                         function CalcMonthlyPayment(loanBalance, loanRate, loanTerm) {
                         
-                        
+                            //  monthlyRate = CalcMonthlyRate(loanRate);
                             let totalMonthlyPayment = (loanBalance) * (loanRate / 1200) / (1 - (1 + loanRate / 1200) ** ((-loanTerm)));
                         
                             return totalMonthlyPayment;
@@ -126,11 +166,15 @@
                         }
                         
                         function CalcMonthlyInterest(loanBalance, monthlyRate) {
+                            // calculate the current remaining balance for the BEFORE calculations of months 
+                            // let previousRemainingBalance = loanBalance;
                             let interestPayment = monthlyRate * loanBalance;
                             return interestPayment;
                         }
                         
                         function CalcNewMonthlyInterest(balance, monthlyRate) {
+                            // calculate the current remaining balance for the BEFORE calculations of months 
+                            // let previousRemainingBalance = loanBalance;
                             let interestPayment = monthlyRate * balance;
                             return interestPayment;
                         }
@@ -165,6 +209,7 @@
                                 document.getElementById("MonthlyPayments").innerHTML = numbers[i + 1]; // displays the monthly payment
                                 document.getElementById("TotalPrincipal").innerHTML = loanBalance; // displays the total principal
                                 document.getElementById("TotalInterest").innerHTML = numbers[i + 4]; // displays the total interest
+                             //   document.getElementById("TotalCost").innerHTML = numbers[i + 5]; // displays the total cost
                                 document.getElementById("TotalPayments").innerHTML = loanTerm; // displays the total payments
                             }
                         
