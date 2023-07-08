@@ -14,7 +14,7 @@ function getInput() {
     // call calculateValues
     numbers = calculateValues(loanBalance, loanTerm, loanRate);
     // call displayValues
-    displayValues(loanBalance, numbers, loanTerm);
+    //   displayValues(loanBalance, numbers, loanTerm);
 
     // check if values are integers
     // if (Number.isInteger(loanBalance) && Number.isInteger(loanTerm) && Number.isInteger(loanRate)) {
@@ -48,12 +48,12 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
         totalInterest += newMonthlyRate;
         monthlyPrincipal = totalMonthlyPayment - newMonthlyRate;
         balance -= monthlyPrincipal;
-
-        let balanceformated = new Intl.NumberFormat("en-US", {
+        let balanceformated = Math.abs(balance);
+        let balanceformatedwithcorrection = new Intl.NumberFormat("en-US", {
             style: 'currency',
             currency: 'USD',
-            currencyDisplay: 'narrowSymbol'
-        }).format(balance);
+            currencyDisplay: 'narrowSymbol',
+        }).format(balanceformated);
         let totalMonthlyPaymentFormatted = new Intl.NumberFormat("en-US", {
             style: 'currency',
             currency: 'USD',
@@ -75,7 +75,7 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
             currencyDisplay: 'narrowSymbol'
         }).format(totalInterest);
         // Loop until the end of the loan term DOES NOT CHANGE
-       
+
         numbers.push(i); // First On The List 
         // Loop until the end of the loan term the totalMonthlyPayment DOES NOT CHANGE
         numbers.push((totalMonthlyPaymentFormatted)); // second on the list 
@@ -85,11 +85,11 @@ function calculateValues(loanBalance, loanTerm, loanRate) {
 
         numbers.push((newMonthlyRateFormatted)) // fouth on the list
         numbers.push((totalInterestFormatted)) // fifth on the list
-        numbers.push((balanceformated)) // sixth on the list
+        numbers.push((balanceformatedwithcorrection)) // sixth on the list
 
     }
-   
-    
+
+
     // get the table body
     let tableBody = document.getElementById("results");
 
